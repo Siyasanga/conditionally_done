@@ -13,12 +13,17 @@ function takeAtaxi(currentTime, targetTime){
   timeDiff = timeDiff/60000;
 
   if(timeDiff <= 5)
-    return "Take a taxi fast! You are left with "+timeDiff+' minutes.'
+    return "Take a taxi fast! You are left with "+timeDiff+' minutes.';
   else if(timeDiff <= 25)
-    return 'Start running now, you are left with '+timeDiff+' minutes.'
+    return 'Start running now, you are left with '+timeDiff+' minutes.';
   else
     return 'Enjoy the walk, you still have '+timeDiff+' minutes.'
 }
 const assert = require('assert');
+console.log(takeAtaxi('2016/11/11 9:25','2016/11/11 9:30'));
 console.log(takeAtaxi('2016/11/11 9:10','2016/11/11 9:30'));
+console.log(takeAtaxi('2016/11/11 9:00','2016/11/11 9:30'));
+
+assert.equal(takeAtaxi('2016/11/11 9:25','2016/11/11 9:30'),"Take a taxi fast! You are left with "+timeDiff+' minutes.');
+assert.equal(takeAtaxi('2016/11/11 9:10','2016/11/11 9:30'),'Start running now, you are left with '+timeDiff+' minutes.');
 assert.equal(takeAtaxi('2016/11/11 9:00','2016/11/11 9:30'),'Enjoy the walk, you still have '+timeDiff+' minutes.');
